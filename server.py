@@ -10,11 +10,7 @@ load_dotenv()
 from google import genai
 
 # Configure the FastAPI app
-app = FastAPI(
-    title="Deliverable Extraction API",
-    description="Extracts structured deliverables from unstructured text using Google Gemini.",
-    version="1.0.0",
-)
+app = FastAPI()
 
 # Configure the Gemini client
 try:
