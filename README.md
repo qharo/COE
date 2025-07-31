@@ -16,12 +16,21 @@ This file creates a simple API that can be continuously running to listen for in
 A) Server Side
 ```bash
 pip install -r requirements.txt
-python server.py
+uvicorn server:app --reload
 ```
 
 B) Client Side
+To simulate Monday.com webhook:
 ```bash
 curl -X POST http://localhost:8000/webhook/monday \
+-H "Content-Type: application/json" \
+-d '{"text": "Create a branded booth for the annual conference by 2025-12-01. Assign to the EVENTS team. Also, prepare marketing materials for the campaign, assigned to MARKETING, due by 2025-11-15."}'
+```
+
+
+To simulate HubSpot.com webhook:
+```bash
+curl -X POST http://localhost:8000/webhook/hubspot \
 -H "Content-Type: application/json" \
 -d '{"text": "Create a branded booth for the annual conference by 2025-12-01. Assign to the EVENTS team. Also, prepare marketing materials for the campaign, assigned to MARKETING, due by 2025-11-15."}'
 ```
